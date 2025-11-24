@@ -15,25 +15,24 @@
       "type": "string",
       "required": true
     },
-    "slug": {
+    "productTitle": {
       "type": "uid",
       "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
       "required": true
     },
     "price": {
       "type": "decimal",
       "required": true
     },
-    "oldPrice": {
-      "type": "decimal",
-      "required": false
+    "salePrice": {
+      "type": "decimal"
     },
-    "shortDescription": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "blocks",
+    "stock": {
+      "type": "integer",
       "required": true
     },
     "images": {
@@ -47,31 +46,29 @@
         "audios"
       ]
     },
-    "inStock": {
-      "type": "boolean",
-      "required": true
-    },
-    "quantity": {
-      "type": "integer",
-      "required": true
-    },
-    "attributes": {
-      "type": "json"
-    },
-    "tags": {
+    "brand": {
       "type": "string"
     },
-    "sku": {
+    "color": {
       "type": "string"
     },
-    "discount": {
-      "type": "integer"
+    "storage": {
+      "type": "string"
+    },
+    "chipset": {
+      "type": "string"
     },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "products"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "product"
     }
   }
 }

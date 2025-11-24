@@ -11,26 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "slug": {
+    "categoryName": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "name",
+      "required": true
     },
     "description": {
-      "type": "blocks"
-    },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "type": "string"
     },
     "products": {
       "type": "relation",

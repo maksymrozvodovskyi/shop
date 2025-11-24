@@ -6,12 +6,12 @@ export interface OrderShippingAddress extends Struct.ComponentSchema {
     displayName: 'shippingAddress';
   };
   attributes: {
-    addressLine1: Schema.Attribute.String & Schema.Attribute.Required;
-    city: Schema.Attribute.String & Schema.Attribute.Required;
-    country: Schema.Attribute.String & Schema.Attribute.Required;
-    fullName: Schema.Attribute.String & Schema.Attribute.Required;
-    phone: Schema.Attribute.String & Schema.Attribute.Required;
-    postalCode: Schema.Attribute.String & Schema.Attribute.Required;
+    addressLine: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    country: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    postalCode: Schema.Attribute.String;
   };
 }
 

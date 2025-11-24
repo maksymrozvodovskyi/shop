@@ -19,6 +19,12 @@
       "type": "decimal",
       "required": true
     },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "order_items"
+    },
     "order": {
       "type": "relation",
       "relation": "manyToOne",

@@ -12,21 +12,17 @@
   "pluginOptions": {},
   "attributes": {
     "total": {
-      "type": "decimal",
-      "required": true
+      "type": "decimal"
     },
     "orderStatus": {
       "type": "enumeration",
-      "required": true,
       "enum": [
-        "pending, paid, shipped, delivered, cancelled"
+        "pending",
+        "paid",
+        "shipped",
+        "delivered",
+        "cancelled"
       ]
-    },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "orders"
     },
     "shippingAddress": {
       "type": "component",
@@ -38,6 +34,12 @@
       "relation": "oneToMany",
       "target": "api::order-item.order-item",
       "mappedBy": "order"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
     }
   }
 }
