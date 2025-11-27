@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AuthNavigation from "./AuthNavigation";
 
 export default function Header() {
   return (
@@ -12,6 +13,8 @@ export default function Header() {
           <Link href="/products" className="hover:text-blue-600 transition">
             Catalog
           </Link>
+
+          <AuthNavigation />
         </nav>
       </div>
     </header>
