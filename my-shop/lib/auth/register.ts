@@ -1,15 +1,15 @@
 // lib/auth/register.ts
 
 import { nextServer } from "@/lib/api/nextServer";
-import type { StrapiErrorResponse } from "@/lib/types/strapi";
+import type { StrapiErrorResponseType } from "@/lib/types/strapi";
 
-export type RegisterRequest = {
+export type RegisterRequestType = {
   username: string;
   email: string;
   password: string;
 };
 
-export type StrapiRegisterResponse = {
+export type StrapiRegisterResponseType = {
   jwt: string;
   user: {
     id: number;
@@ -18,9 +18,9 @@ export type StrapiRegisterResponse = {
   };
 };
 
-export async function register(data: RegisterRequest) {
+export async function register(data: RegisterRequestType) {
   try {
-    const res = await nextServer.post<StrapiRegisterResponse>(
+    const res = await nextServer.post<StrapiRegisterResponseType>(
       "/auth/register",
       data
     );
@@ -28,7 +28,7 @@ export async function register(data: RegisterRequest) {
     return res.data;
   } catch (err) {
     const error = err as {
-      response?: { data?: StrapiErrorResponse };
+      response?: { data?: StrapiErrorResponseType };
       message?: string;
     };
 

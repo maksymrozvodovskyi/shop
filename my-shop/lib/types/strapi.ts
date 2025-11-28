@@ -1,18 +1,18 @@
-export interface StrapiListResponse<T> {
+export type StrapiListResponseType<T> = {
   data: T[];
   meta: unknown;
-}
+};
 
-export interface StrapiSingleResponse<T> {
+export type StrapiSingleResponseType<T> = {
   data: T;
   meta: unknown;
-}
+};
 
-export interface StrapiErrorResponse {
+export type StrapiErrorResponseType = {
   error: {
     status: number;
     message: string;
     name: string;
     details?: unknown;
   };
-}
+};

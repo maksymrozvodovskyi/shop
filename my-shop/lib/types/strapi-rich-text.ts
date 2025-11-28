@@ -1,11 +1,11 @@
-export interface StrapiTextNode {
+export type StrapiTextNodeType = {
   type: "text";
   text: string;
-}
+};
 
-export interface StrapiParagraph {
+export type StrapiParagraphType = {
   type: "paragraph";
-  children: StrapiTextNode[];
-}
+  children: StrapiTextNodeType[];
+};
 
-export type StrapiRichText = StrapiParagraph[];
+export type StrapiRichTextType = StrapiParagraphType[];

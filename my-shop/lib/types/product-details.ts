@@ -1,10 +1,10 @@
-import type { StrapiRichText } from "./strapi-rich-text";
+import type { StrapiRichTextType } from "./strapi-rich-text";
 
-export interface ProductDetails {
+export type ProductDetailsType = {
   id: number;
-  documentId: string;
+  productId: string;
   title: string;
-  description: StrapiRichText;
+  description: StrapiRichTextType;
   price: number;
   salePrice: number | null;
   brand: string;
@@ -13,4 +13,4 @@ export interface ProductDetails {
   chipset: string;
   stock: number;
   imageUrl: string | null;
-}
+};

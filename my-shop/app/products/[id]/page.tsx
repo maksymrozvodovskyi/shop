@@ -1,11 +1,13 @@
 import ProductDetailsClient from "./ProductDetailsClient";
 
-interface ProductPageProps {
-  params: Promise<{ id: string }>;
-}
+export type ProductPagePropsType = {
+  params: Promise<{ productId: string }>;
+};
 
-export default async function ProductDetailsPage({ params }: ProductPageProps) {
-  const { id } = await params;
+export default async function ProductDetailsPage({
+  params,
+}: ProductPagePropsType) {
+  const { productId } = await params;
 
-  return <ProductDetailsClient id={id} />;
+  return <ProductDetailsClient productId={productId} />;
 }

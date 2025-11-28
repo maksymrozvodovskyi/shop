@@ -1,19 +1,19 @@
-import { StrapiRichText } from "./strapi-rich-text";
+import type { StrapiRichTextType } from "./strapi-rich-text";
 
-export interface Product {
+export type ProductType = {
   id: number;
-  documentId: string;
+  productId: string;
   title: string;
   price: number;
   imageUrl: string | null;
-}
+};
 
-export interface ProductRaw {
+export type ProductRawType = {
   id: number;
-  documentId: string;
+  productId: string;
   title: string;
   productTitle: string;
-  description: StrapiRichText;
+  description: StrapiRichTextType;
   price: number;
   salePrice: number | null;
   brand: string;
@@ -28,4 +28,4 @@ export interface ProductRaw {
       small?: { url: string };
     };
   }>;
-}
+};

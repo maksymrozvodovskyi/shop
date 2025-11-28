@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { fetchCategories } from "@/lib/api/categories";
-import type { Category } from "@/lib/types/category";
+import type { CategoryType } from "@/lib/types/category";
 
 export default async function ProductsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const categories: Category[] = await fetchCategories();
+  const categories: CategoryType[] = await fetchCategories();
 
   return (
     <div className="flex gap-8">
@@ -27,7 +27,9 @@ export default async function ProductsLayout({
           {categories.map((c) => (
             <li key={c.id}>
               <Link
-                href={`/products?category=${c.categoryName}`}
+                href={`/products?categorySlug=${encodeURIComponent(
+                  c.categorySlug
+                )}`}
                 className="hover:underline block"
               >
                 {c.name}

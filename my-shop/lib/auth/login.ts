@@ -1,11 +1,11 @@
 import { nextServer } from "../api/nextServer";
 
-export type LoginRequest = {
+export type LoginRequestType = {
   identifier: string;
   password: string;
 };
 
-export type StrapiLoginResponse = {
+export type StrapiLoginResponseType = {
   jwt: string;
   user: {
     id: number;
@@ -14,7 +14,10 @@ export type StrapiLoginResponse = {
   };
 };
 
-export async function login(data: LoginRequest) {
-  const res = await nextServer.post<StrapiLoginResponse>("/auth/local", data);
+export async function login(data: LoginRequestType) {
+  const res = await nextServer.post<StrapiLoginResponseType>(
+    "/auth/local",
+    data
+  );
   return res.data;
 }

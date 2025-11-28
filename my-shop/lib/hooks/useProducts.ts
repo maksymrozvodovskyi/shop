@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchProducts } from "../api/products";
-import { Product } from "../types/product";
+import { getProductsList } from "../api/products";
+import type { ProductType } from "../types/product";
+import { QUERY_KEYS } from "../query-keys";
 
-export function useProducts(category?: string) {
-  return useQuery<Product[]>({
-    queryKey: ["products", category],
-    queryFn: () => fetchProducts(category),
+export function useProducts(categorySlug?: string) {
+  return useQuery<ProductType[]>({
+    queryKey: [QUERY_KEYS.PRODUCTS, categorySlug],
+    queryFn: () => getProductsList(categorySlug),
   });
 }

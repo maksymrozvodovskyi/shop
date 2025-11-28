@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchCategories } from "../api/categories";
+import { getCategories } from "../api/categories";
+import { CategoryType } from "../types/category";
+import { QUERY_KEYS } from "../query-keys";
 
 export function useCategories() {
-  return useQuery({
-    queryKey: ["categories"],
-    queryFn: fetchCategories,
+  return useQuery<CategoryType[]>({
+    queryKey: [QUERY_KEYS.CATEGORIES],
+    queryFn: getCategories,
   });
 }

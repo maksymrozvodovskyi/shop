@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface Props {
+export type ProductCardPropsType = {
   id: number;
-  documentId: string;
+  productId: string;
   title: string;
   price: number;
   imageUrl: string | null;
-}
+};
 
 export default function ProductCard({
-  documentId,
+  productId,
   title,
   price,
   imageUrl,
-}: Props) {
+}: ProductCardPropsType) {
   return (
     <div className="border rounded-lg bg-white hover:shadow-md transition p-6 flex flex-col">
       <div className="relative w-full h-64 mb-4 bg-white flex items-center justify-center">
@@ -36,7 +36,7 @@ export default function ProductCard({
       <p className="font-bold text-gray-800 text-xl mb-4">{price} $</p>
 
       <Link
-        href={`/products/${documentId}`}
+        href={`/products/${productId}`}
         className="mt-auto bg-blue-600 text-white font-medium py-2 px-4 rounded-md text-center hover:bg-blue-700 transition"
       >
         Buy
