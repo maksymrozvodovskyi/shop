@@ -5,13 +5,16 @@ export type LoginRequestType = {
   password: string;
 };
 
+export type StrapiLoginUserType = {
+  id: number;
+  documentId: string;
+  username: string;
+  email: string;
+};
+
 export type StrapiLoginResponseType = {
   jwt: string;
-  user: {
-    id: number;
-    username: string;
-    email: string;
-  };
+  user: StrapiLoginUserType;
 };
 
 export async function login(data: LoginRequestType) {
