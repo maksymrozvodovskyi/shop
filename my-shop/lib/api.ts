@@ -1,8 +1,9 @@
-import axios from "axios";
+export async function apiGet<T>(path: string): Promise<T> {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/api${path}`;
 
-export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-  headers: {
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`,
-  },
-});
+  const res = await fetch(url, { cache: "no-store" });
+
+  if (!res.ok) throw new Error("Failed to fetch from Strapi");
+
+  return res.json() as Promise<T>;
+}
