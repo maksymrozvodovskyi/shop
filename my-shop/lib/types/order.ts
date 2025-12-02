@@ -9,16 +9,16 @@ export type ShippingAddressType = {
 
 export type OrderItemType = {
   id: number;
-  productId: string;
   quantity: number;
   price: number;
 };
 
 export type OrderType = {
   id: number;
-  orderId: string;
+  documentId: string;
   total: number;
   orderStatus: string;
+  createdAt: string;
   shippingAddress: ShippingAddressType;
-  items: OrderItemType[];
+  order_items: OrderItemType[];
 };

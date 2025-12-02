@@ -2,7 +2,7 @@ import type { StrapiRichTextType } from "./strapi-rich-text";
 
 export type ProductDetailsType = {
   id: number;
-  productId: string;
+  documentId: string;
   title: string;
   description: StrapiRichTextType;
   price: number;

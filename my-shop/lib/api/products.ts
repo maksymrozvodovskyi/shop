@@ -2,7 +2,10 @@ import { apiGet } from "../api";
 import type { ProductRawType } from "../types/product";
 import type { ProductType } from "../types/product";
 import type { ProductDetailsType } from "../types/product-details";
-import type { StrapiListResponseType } from "../types/strapi";
+import type {
+  StrapiListResponseType,
+  StrapiSingleResponseType,
+} from "../types/strapi";
 
 export async function getProductsList(
   categorySlug?: string
@@ -21,7 +24,7 @@ export async function getProductsList(
 
     return {
       id: item.id,
-      productId: item.productId,
+      documentId: item.documentId,
       title: item.title,
       price: item.price,
       imageUrl,
@@ -30,9 +33,12 @@ export async function getProductsList(
 }
 
 export async function getProductById(
-  productId: string
+  documentId: string
 ): Promise<ProductDetailsType> {
-  const res = await apiGet(`/products/${productId}?populate=*`);
+  const res = await apiGet<StrapiSingleResponseType<ProductRawType>>(
+    `/products/${documentId}?populate=*`
+  );
+
   const item = res.data;
 
   const img = item.images?.[0]?.url || null;
@@ -40,7 +46,7 @@ export async function getProductById(
 
   return {
     id: item.id,
-    productId: item.productId,
+    documentId: item.documentId,
     title: item.title,
     description: item.description,
     price: item.price,

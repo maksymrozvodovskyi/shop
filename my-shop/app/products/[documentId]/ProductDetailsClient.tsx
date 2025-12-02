@@ -3,12 +3,8 @@
 import { useProduct } from "@/lib/hooks/useProduct";
 import Image from "next/image";
 
-export default function ProductDetailsClient({
-  productId,
-}: {
-  productId: string;
-}) {
-  const { data, isLoading, isError } = useProduct(productId);
+export default function ProductDetailsClient({ id }: { id: string }) {
+  const { data, isLoading, isError } = useProduct(id);
 
   if (isLoading) return <p>Loading product...</p>;
   if (isError || !data) return <p>Product not found</p>;
