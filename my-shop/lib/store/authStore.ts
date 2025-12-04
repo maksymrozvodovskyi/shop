@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 export type AuthUserType = {
   id: number;
@@ -14,11 +15,22 @@ type AuthStoreType = {
   clearAuth: () => void;
 };
 
-export const useAuthStore = create<AuthStoreType>((set) => ({
-  isAuthenticated: false,
-  user: null,
+export const useAuthStore = create<AuthStoreType>()(
+  persist(
+    (set) => ({
+      isAuthenticated: false,
+      user: null,
 
-  setUser: (user) => set({ user, isAuthenticated: true }),
+      setUser: (user) => set({ user, isAuthenticated: true }),
 
-  clearAuth: () => set({ user: null, isAuthenticated: false }),
-}));
+      clearAuth: () => set({ user: null, isAuthenticated: false }),
+    }),
+    {
+      name: "auth-storage",
+      partialize: (state) => ({
+        isAuthenticated: state.isAuthenticated,
+        user: state.user,
+      }),
+    }
+  )
+);
