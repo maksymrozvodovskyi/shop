@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fetchCategories } from "@/lib/api/categories";
+import { getCategories } from "@/lib/api/categories";
 import type { CategoryType } from "@/lib/types/category";
 
 export default async function ProductsLayout({
@@ -7,7 +7,7 @@ export default async function ProductsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const categories: CategoryType[] = await fetchCategories();
+  const categories: CategoryType[] = await getCategories();
 
   return (
     <div className="flex gap-8">

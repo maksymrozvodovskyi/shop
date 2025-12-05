@@ -14,6 +14,10 @@ export default function Header() {
             Catalog
           </Link>
 
+          <Link href="/orders" className="hover:text-blue-600 transition">
+            Orders
+          </Link>
+
           <AuthNavigation />
         </nav>
       </div>

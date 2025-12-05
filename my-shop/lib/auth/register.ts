@@ -1,5 +1,3 @@
-// lib/auth/register.ts
-
 import { nextServer } from "@/lib/api/nextServer";
 import type { StrapiErrorResponseType } from "@/lib/types/strapi";
 

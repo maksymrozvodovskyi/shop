@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { api } from "@/lib/api/api";
 import { cookies } from "next/headers";
-import type { StrapiErrorResponse } from "@/lib/types/strapi";
+import type { StrapiErrorResponseType } from "@/lib/types/strapi";
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
@@ -19,15 +19,20 @@ export async function POST(req: NextRequest) {
     const cookieStore = await cookies();
 
     cookieStore.set("jwt", jwt, {
-      httpOnly: true,
+      httpOnly: false,
       path: "/",
       maxAge: 60 * 60 * 24 * 7,
+    });
+
+    cookieStore.set("user_doc_id", user.documentId, {
+      httpOnly: false,
+      path: "/",
     });
 
     return NextResponse.json(user);
   } catch (err) {
     const error = err as {
-      response?: { data?: StrapiErrorResponse };
+      response?: { data?: StrapiErrorResponseType };
       message?: string;
     };
 

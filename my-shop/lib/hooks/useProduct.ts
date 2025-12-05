@@ -3,9 +3,9 @@ import { getProductById } from "../api/products";
 import type { ProductDetailsType } from "../types/product-details";
 import { QUERY_KEYS } from "../query-keys";
 
-export function useProduct(productId: string) {
+export function useProduct(documentId: string) {
   return useQuery<ProductDetailsType>({
-    queryKey: [QUERY_KEYS.PRODUCT, productId],
-    queryFn: () => getProductById(productId),
+    queryKey: [QUERY_KEYS.PRODUCT, documentId],
+    queryFn: () => getProductById(documentId),
   });
 }
