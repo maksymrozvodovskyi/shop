@@ -36,14 +36,19 @@ This project includes:
 ```bash
 git clone <repository-url>
 cd <project-folder>
+```
 
 # 2. Running the Strapi Backend
 
 # 2.1 Navigate to the backend folder
+```
 cd backend
+```
 
 # 2.2 Install Strapi dependencies
+```
 npm install
+```
 
 # 2.3 Start Strapi in development mode
 npm run develop
