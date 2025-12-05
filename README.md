@@ -51,7 +51,9 @@ npm install
 ```
 
 # 2.3 Start Strapi in development mode
+```
 npm run develop
+```
 
 Strapi admin panel will be available at:
 http://localhost:1337/admin
@@ -72,10 +74,14 @@ Make sure to enable the correct permissions:
 # 3. Running the Next.js Frontend
 
 # 3.1 Go back to the frontend root
+```
 cd ../
+```
 
 # 3.2 Start development server
+```
 npm run dev
+```
 
 Application will be available at:
 http://localhost:3000
@@ -149,7 +155,7 @@ Fields:
 - phone
 
 # 7.2 Payload example
-
+```
 {
   "total": 1299,
   "shippingAddress": {
@@ -168,6 +174,7 @@ Fields:
     }
   ]
 }
+```
 
 # 7.3 Server creates order + items
 Handled by /api/checkout Route Handler.
