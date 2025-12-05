@@ -100,12 +100,13 @@ POST /api/auth/local
 
 The backend returns a JWT.  
 Next.js stores the JWT in an HttpOnly cookie using Route Handlers:
-
+```
 cookies().set("jwt", token, {
   httpOnly: true,
   path: "/",
   maxAge: 7 * 24 * 60 * 60
 });
+```
 
 ---
 
@@ -120,13 +121,14 @@ If user has no JWT cookie → redirect to /sign-in
 If user is already authenticated → prevent access to /sign-in and /sign-up
 
 Middleware config:
-
+```
 matcher:
   "/checkout/:path*",
   "/orders/:path*",
   "/products/:path*",
   "/sign-in",
   "/sign-up"
+```
 
 ---
 
