@@ -33,7 +33,7 @@ This project includes:
 # 📦 1. Project Setup
 
 ## 1.1 Clone the repository
-```bash
+```
 git clone <repository-url>
 cd <project-folder>
 ```
@@ -92,11 +92,12 @@ http://localhost:3000
 
 User logs in using:
 POST /api/auth/local
-
+```
 {
   "identifier": "email",
   "password": "password"
 }
+```
 
 The backend returns a JWT.  
 Next.js stores the JWT in an HttpOnly cookie using Route Handlers:
