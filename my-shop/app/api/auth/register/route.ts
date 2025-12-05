@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
 
   try {
-    const apiRes = await api.post("/auth/local/register", body);
+    const apiRes = await api.post("/api/auth/local/register", body);
 
     const jwt: string | undefined = apiRes.data?.jwt;
     const user = apiRes.data?.user;

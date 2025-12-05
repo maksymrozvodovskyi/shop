@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { register, RegisterRequest } from "@/lib/auth/register";
+import { register, RegisterRequestType } from "@/lib/auth/register";
 
 export default function SignUp() {
   const router = useRouter();
@@ -11,11 +11,11 @@ export default function SignUp() {
   const handleSubmit = async (formData: FormData) => {
     setError("");
 
-    const values = Object.fromEntries(formData) as RegisterRequest;
+    const values = Object.fromEntries(formData) as RegisterRequestType;
 
     try {
       const res = await register(values);
-      if (res) router.push("/profile");
+      if (res) router.push("/products");
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unknown error";
       setError(message);
