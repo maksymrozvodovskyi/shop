@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/serve";
+import { NextRequest, NextResponse } from "next/server";
 import { api } from "@/lib/api/api";
 import { cookies } from "next/headers";
 import type { StrapiErrorResponseType } from "@/lib/types/strapi";
