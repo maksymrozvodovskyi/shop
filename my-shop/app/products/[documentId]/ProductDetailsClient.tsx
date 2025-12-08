@@ -9,11 +9,13 @@ export default function ProductDetailsClient({ id }: { id: string }) {
   const { data, isLoading, isError } = useProduct(id);
   const router = useRouter();
 
+  const addItem = useCartStore((state) => state.addItem);
+
   if (isLoading) return <p>Loading product...</p>;
   if (isError || !data) return <p>Product not found</p>;
 
   const handleBuy = () => {
-    useCartStore.getState().addItem({
+    addItem({
       documentId: data.documentId,
       title: data.title,
       price: data.price,
