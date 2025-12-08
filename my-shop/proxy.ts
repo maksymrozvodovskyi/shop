@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const privateRoutes = ["/products", "/orders", "/checkout"];
 const authRoutes = ["/sign-in", "/sign-up"];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const jwt = request.cookies.get("jwt")?.value;
