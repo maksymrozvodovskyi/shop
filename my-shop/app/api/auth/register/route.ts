@@ -12,14 +12,23 @@ export async function POST(req: NextRequest) {
     const jwt: string | undefined = apiRes.data?.jwt;
     const user = apiRes.data?.user;
 
-    if (!jwt) {
-      return NextResponse.json({ error: "No token received" }, { status: 400 });
+    if (!jwt || !user || !user.id) {
+      return NextResponse.json(
+        { error: "Invalid response from server" },
+        { status: 400 }
+      );
     }
 
     const cookieStore = await cookies();
 
     cookieStore.set("jwt", jwt, {
-      httpOnly: true,
+      httpOnly: false,
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
+    });
+
+    cookieStore.set("user_id", user.id.toString(), {
+      httpOnly: false,
       path: "/",
       maxAge: 60 * 60 * 24 * 7,
     });

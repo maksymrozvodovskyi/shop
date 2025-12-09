@@ -35,7 +35,7 @@
       "target": "api::order-item.order-item",
       "mappedBy": "order"
     },
-    "users_permissions_user": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
