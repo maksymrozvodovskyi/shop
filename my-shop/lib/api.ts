@@ -5,7 +5,16 @@ export async function apiGet<T>(path: string): Promise<T> {
     cache: "no-store",
   });
 
-  if (!res.ok) throw new Error("Failed to fetch from Strapi");
+  if (!res.ok) {
+    let errorMessage = `Failed to fetch from Strapi (${res.status})`;
+    try {
+      const errorData = await res.json();
+      errorMessage = errorData.error?.message || errorMessage;
+    } catch {
+      // If response is not JSON, use default message
+    }
+    throw new Error(errorMessage);
+  }
 
   return res.json() as Promise<T>;
 }

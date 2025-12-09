@@ -15,7 +15,9 @@ export default function SignUp() {
 
     try {
       const res = await register(values);
-      if (res) router.push("/products");
+      if (res) {
+        router.push("/products");
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unknown error";
       setError(message);
